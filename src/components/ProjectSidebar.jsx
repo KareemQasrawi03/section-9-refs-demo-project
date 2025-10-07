@@ -19,18 +19,18 @@ function ProjectSidebar({
       <ul className="mt-8">
         {projects.map((project) => {
           let cssClasses =
-            "w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-800";
+            "w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200";
 
           if (project.id === selectProjectId) {
             cssClasses += " bg-stone-800 text-stone-200";
           } else {
-            cssClasses += " text-stone-400";
+            cssClasses += " text-stone-300";
           }
           return (
             <li key={project.id}>
               <button
                 className={cssClasses}
-                onClick={()=>onSelectProject(project.id)}
+                onClick={() => onSelectProject(project.id)}
               >
                 {project.title}
               </button>
