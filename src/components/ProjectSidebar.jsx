@@ -9,35 +9,37 @@ function ProjectSidebar({
 }) {
   console.log("projects,", projects);
   return (
-    <aside className="w-1/3 px-18 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl margin-auto">
-      <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
-        Your Projects
-      </h2>
-      <div>
-        <Button onClick={onStartAddProject}>+ Add Projects</Button>
-      </div>
-      <ul className="mt-8">
-        {projects.map((project) => {
-          let cssClasses =
-            "w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200";
+    <aside className="px-18 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl margin-auto">
+      <div className="mx-5">
+        <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
+          Your Projects
+        </h2>
+        <div>
+          <Button onClick={onStartAddProject}>+ Add Projects</Button>
+        </div>
+        <ul className="mt-8">
+          {projects.map((project) => {
+            let cssClasses =
+              "w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200";
 
-          if (project.id === selectProjectId) {
-            cssClasses += " bg-stone-800 text-stone-200";
-          } else {
-            cssClasses += " text-stone-300";
-          }
-          return (
-            <li key={project.id}>
-              <button
-                className={cssClasses}
-                onClick={() => onSelectProject(project.id)}
-              >
-                {project.title}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+            if (project.id === selectProjectId) {
+              cssClasses += " bg-stone-800 text-stone-200";
+            } else {
+              cssClasses += " text-stone-300";
+            }
+            return (
+              <li key={project.id}>
+                <button
+                  className={cssClasses}
+                  onClick={() => onSelectProject(project.id)}
+                >
+                  {project.title}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </aside>
   );
 }
